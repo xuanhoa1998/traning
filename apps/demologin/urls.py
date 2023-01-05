@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from apps.demologin.views import user_manager
+from apps.demologin.views.user_manager import MyTokenObtainPairView
 
 urlpatterns = [
-    path('login', user_manager.login, name='user/login'),
-    # path('accounts/login/', auth_views.LoginView.as_view(template_name='myapp/login.html')),
+    # path('login/', user_manager.MyTokenObtainPairView, name='user/login'),
+    path('login/', MyTokenObtainPairView.as_view(), name='token_refresh')
 
 ]
