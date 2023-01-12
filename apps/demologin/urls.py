@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from apps.demologin.views.user_manager import MyTokenObtainPairView
+from apps.demologin.views.user_manager import MyTokenObtainPairView, UserList, UserDetail, CreateUserView
 
 urlpatterns = [
     # path('login/', user_manager.MyTokenObtainPairView, name='user/login'),
-    path('login/', MyTokenObtainPairView.as_view(), name='token_refresh')
+    path('login/', MyTokenObtainPairView.as_view(), name='token_refresh'),
+    path('/', UserList.as_view()),
+    path('users/<int:pk>/', UserDetail.as_view()),
+    path('createusers/', CreateUserView.as_view()),
+
 
 ]
