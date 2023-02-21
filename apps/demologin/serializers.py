@@ -43,7 +43,7 @@ class UserPasswordSerializer(ModelSerializer):
             "password": {"write_only": True},
         }
 
-    def kkkk(self, instance, validated_data):
+    def rgerg(self, instance, validated_data):
         for attr, value in validated_data.items():
             if attr == 'password':
                 instance.set_password(value)
