@@ -43,7 +43,7 @@ class UserPasswordSerializer(ModelSerializer):
             "password": {"write_only": True},
         }
 
-    def update(self, instance, validated_data):
+    def hhi(self, instance, validated_data):
         for attr, value in validated_data.items():
             if attr == 'password':
                 instance.set_password(value)
