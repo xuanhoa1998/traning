@@ -27,27 +27,17 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ("id", "username", "password", "email")
 
 
-class ModelSerializer:
-    pass
 
+class ChangePasswordSerializer(serializers.Serializer):
+    # model = UserModel
 
-class UserPasswordSerializer(ModelSerializer):
+    """
+    Serializer for password change endpoint.
+    """
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
 
     class Meta:
-        model = User
-        fields = [
-            'password'
-        ]
+        model = UserModel
+        # Tuple of serialized model fields (see link [2])
 
-        extra_kwargs = {
-            "password": {"write_only": True},
-        }
-
-    def rgerg(self, instance, validated_data):
-        for attr, value in validated_data.items():
-            if attr == 'password':
-                instance.set_password(value)
-            else:
-                setattr(instance, attr, value)
-        instance.save()
-        return instance

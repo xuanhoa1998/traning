@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from apps.demologin.views.user_manager import MyTokenObtainPairView, UserList, UserDetail, CreateUserView
+from apps.demologin.views.user_manager import MyTokenObtainPairView, UserList, UserDetail, CreateUserView, ChangePasswordSerializer
 
 urlpatterns = [
     # path('login/', user_manager.MyTokenObtainPairView, name='user/login'),
@@ -24,6 +24,7 @@ urlpatterns = [
     path('/', UserList.as_view()),
     path('users/<int:pk>/', UserDetail.as_view()),
     path('createusers/', CreateUserView.as_view()),
+    path('changePassword/', ChangePasswordSerializer.as_view(), name="changePassword"),
 
 
 ]
